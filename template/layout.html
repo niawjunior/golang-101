@@ -1,0 +1,11 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<title>{{template "page-title"}}Web 1</title>
+
+<ul>
+        <li class="nav {{if eq templateName "template/index.html"}}active{{end}}">Index</li>
+        <li class="nav {{if eq templateName "template/signin.html"}}active{{end}}">Sign Index</li>
+        <li class="nav {{if eq templateName "template/signup.html"}}active{{end}}">Sign Up</li>
+</ul>
+    {{template "body" .}}
+{{end}}

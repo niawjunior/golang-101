@@ -1,0 +1,25 @@
+{{define "page-title"}}Index{{end}}
+{{define "body"}}
+{{if .User}}
+<h1>Hello, {{.User.Username}}</h1>
+    <a href="/signout">Sign Out</a>
+    <form method="POST" action="/post">
+        <input name="msg">
+        <button>Post</button>
+    </form>
+{{else}}
+    <a href="/signup">Sign Up</a>
+    <a href="/signin">Sign In</a>
+{{end}}
+
+<ul>
+    {{range .Posts}}
+    {{template "post-card" .}}
+    {{end}}
+</ul>
+{{end}}
+
+
+{{define "post-card"}}
+    <li>{{.CreatedAt | dateTime}} {{.Username}}: {{.Msg}}</li>
+{{end}}
